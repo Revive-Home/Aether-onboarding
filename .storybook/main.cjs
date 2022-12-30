@@ -12,10 +12,6 @@ module.exports = {
   async viteFinal(config) {
     return {
       ...config,
-      esbuild: {
-        ...config.esbuild,
-        jsxInject: `import React from 'react'`,
-      },
       rollupOptions: {
         ...config.rollupOptions,
         external: ["react", "react-dom"],
