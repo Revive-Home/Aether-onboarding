@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
@@ -33,5 +34,10 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "src"),
     },
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./tests/setup.js",
   },
 });
