@@ -8,16 +8,27 @@ export interface DropdownProps {
 const Dropdown = ({ list }: DropdownProps): JSX.Element => {
   return (
     <Menu>
-      <Menu.Button className="bg-white font-bold">Options</Menu.Button>
-      <Menu.Items>
-        {list.map((item) => (
+      <Menu.Button
+        className="mt-2 p-4 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="menu-button"
+        tabIndex={-1}
+      >
+        Options
+      </Menu.Button>
+      <Menu.Items className="py-1 w-56">
+        {list.map((item, i) => (
           <Menu.Item key={item.href} as={Fragment}>
             {({ active }) => (
               <a
                 href={item.href}
                 className={`${
                   active ? "bg-blue-500 text-white" : "bg-white text-black"
-                }`}
+                } block px-4 py-2 text-sm`}
+                role="menuitem"
+                tabIndex={-1}
+                id={`menu-item-${i}`}
               >
                 {item.label}
               </a>

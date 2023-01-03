@@ -5,7 +5,7 @@ export interface ButtonProps {
 
 const Button = ({ children, disabled }: ButtonProps): JSX.Element => {
   return (
-    <button className="bg-white font-bold" disabled={disabled}>
+    <button className="bg-white font-bold p-4" disabled={disabled}>
       {children}
     </button>
   );
