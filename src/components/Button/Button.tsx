@@ -4,7 +4,7 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({
+export const Button = ({
   className,
   children,
   disabled,
@@ -16,5 +16,3 @@ const Button = ({
     </button>
   );
 };
-
-export default Button;

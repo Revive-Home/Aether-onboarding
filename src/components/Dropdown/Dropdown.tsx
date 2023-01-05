@@ -6,7 +6,7 @@ export interface DropdownProps {
   list: Record<string, any>[];
 }
 
-const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
+export const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
   const classes = `${className} mt-2 p-4 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`;
 
   return (
@@ -42,5 +42,3 @@ const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
     </Menu>
   );
 };
-
-export default Dropdown;

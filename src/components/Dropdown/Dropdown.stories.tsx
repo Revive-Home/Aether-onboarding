@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Dropdown from "./Dropdown";
+import { Dropdown } from "./Dropdown";
 
 export default {
   title: "Example/Dropdown",
