@@ -2,14 +2,17 @@ import { Fragment } from "react";
 import { Menu } from "@headlessui/react";
 
 export interface DropdownProps {
+  className?: string;
   list: Record<string, any>[];
 }
 
-const Dropdown = ({ list }: DropdownProps): JSX.Element => {
+const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
+  const classes = `${className} mt-2 p-4 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`;
+
   return (
     <Menu>
       <Menu.Button
-        className="mt-2 p-4 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        className={classes}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
