@@ -47,7 +47,7 @@ Within a separate application that uses Aether, import the desired component as 
 import { Button, Dropdown } from "@revive/aether";
 ```
 
-Within Aether itself, import the desired component by pointing to the component file. The import path should use the alias (`@`):
+Within Aether itself, import the desired component by pointing to the component file. The alias (`@`) should be used for the import path:
 
 ```TypeScript
 import { Button } from "@/components/Button";
