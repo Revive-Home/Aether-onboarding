@@ -84,10 +84,6 @@ To import Aether components, refer to the [Usage](#usage) section.
 
 **_TODO: Add guideline for writing components and code style_**
 
-### Vite and `.cjs` extension
-
-Since the version 3, Vite is adding `"type": "module"` to the package.json of projects it creates to [optimize ESbuild deps at build time](https://vitejs.dev/blog/announcing-vite3.html#esbuild-deps-optimization-at-build-time-experimental). So to use commonjs, it is necessary to use the .cjs extension.
-
 ## Unit Testing and Visual Regression Testing
 
 For unit testing, Aether uses [Vitest](https://vitest.dev/guide/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/api).
@@ -95,3 +91,9 @@ For unit testing, Aether uses [Vitest](https://vitest.dev/guide/) and [React Tes
 ### Chromatic Visual Regression Testing
 
 **_TODO: Add Chromatic description/usage_**
+
+---
+
+### Vite and `.cjs` extension
+
+Since the version 3, Vite is adding `"type": "module"` to the package.json of projects it creates to [optimize ESbuild deps at build time](https://vitejs.dev/blog/announcing-vite3.html#esbuild-deps-optimization-at-build-time-experimental). So to use commonjs, it is necessary to use the .cjs extension.
