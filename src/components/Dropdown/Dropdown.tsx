@@ -7,7 +7,7 @@ export interface DropdownProps {
 }
 
 export const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
-  const classes = `${className} h-full font-bold border-2 border-green rounded-lg px-8 py-3 transition-all ease-in-out text-green bg-white hover:text-greenDark hover:border-greenDark`;
+  const classes = `${className} h-full font-bold border-2 border-green-300 rounded-lg px-8 py-3 transition-all ease-in-out text-green-300 bg-white hover:text-green-400 hover:border-green-400`;
 
   return (
     <Menu>
@@ -27,7 +27,9 @@ export const Dropdown = ({ className, list }: DropdownProps): JSX.Element => {
               <a
                 href={item.href}
                 className={`${
-                  active ? "bg-blue-500 text-white" : "bg-white text-black"
+                  active
+                    ? "bg-darkPurple-500 text-white"
+                    : "bg-white text-black"
                 } block px-4 py-2 text-sm`}
                 role="menuitem"
                 tabIndex={-1}
