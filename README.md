@@ -33,6 +33,11 @@ To style the components, Aether uses [TailwindCSS](https://tailwindcss.com/).
 
 **_TODO: Add tailwind guideline/practice_**
 
+**Theme**
+Aether utilizes the custom theming feature of Tailwind. The custom theming can be configured in [`tailwind.config.js`](tailwind.config.cjs).
+
+- [Tailwind, Customizing Colors](https://tailwindcss.com/docs/customizing-colors)
+
 ### Headless UI
 
 Aether uses [`headlessui`](https://headlessui.com/) to abstract away some of the component behavior logic.
