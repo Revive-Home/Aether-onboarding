@@ -4,6 +4,10 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ["Poppins", "sans-serif"],
+      nunito: ["Nunito", "sans-serif"],
+    },
     colors: {
       black: "#000",
       white: "#fff",
