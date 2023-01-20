@@ -1,34 +1,18 @@
 import clsx from "clsx";
 
-type TagProps =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "p"
-  | "a"
-  | "label"
-  | "small"
-  | "span";
+import typographyClasses from "./Typography.module.css";
+import {
+  TypographyTagNameProps as TagNameProps,
+  TypographyVariantProps as VariantProps,
+} from "../../../types/types";
+import { getTag } from "../../../utils";
 
 export interface TypographyProps {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "label" | "span";
+  as?: TagNameProps;
   className?: string;
   children: React.ReactNode;
-  variant:
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "subtitle"
-    | "body"
-    | "text"
-    | "link"
-    | "small";
+  variant: VariantProps;
+  weight?: "medium" | "semibold" | "bold" | "default";
 }
 
 export const Typography = ({
@@ -36,21 +20,15 @@ export const Typography = ({
   className,
   children,
   variant,
+  weight,
 }: TypographyProps): JSX.Element => {
-  const classes = clsx(``, className);
-  let el: TagProps = "span";
-  switch (variant) {
-    case "body":
-    case "subtitle":
-    case "text":
-      el = "p";
-      break;
-    case "link":
-      el = "a";
-      break;
-    default:
-      el = variant;
-  }
-  const Tag = as ? as : el;
-  return <Tag>{children}</Tag>;
+  const classes = clsx(
+    typographyClasses.baseStyle,
+    typographyClasses[variant],
+    weight && typographyClasses[weight],
+    className
+  );
+
+  const Tag = as ? as : getTag(variant);
+  return <Tag className={classes}>{children}</Tag>;
 };
