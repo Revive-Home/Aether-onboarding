@@ -6,6 +6,9 @@ export default {
   title: "Foundations/Typography",
   component: Typography,
   argTypes: {
+    className: {
+      control: false,
+    },
     variant: {
       options: [
         "heading1",
