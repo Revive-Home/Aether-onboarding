@@ -7,6 +7,8 @@ export const getTag = (variant: TypographyVariantProps) => {
     case "body2":
       tag = "p";
       break;
+    case "overline-sm":
+    case "overline-lg":
     case "subtitle":
       tag = "h6";
       break;

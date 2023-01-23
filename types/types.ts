@@ -22,4 +22,6 @@ export type TypographyVariantProps =
   | "body"
   | "body2"
   | "link"
-  | "small";
+  | "small"
+  | "overline-sm"
+  | "overline-lg";

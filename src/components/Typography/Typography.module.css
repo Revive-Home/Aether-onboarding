@@ -1,6 +1,8 @@
 .baseStyle {
 }
 
+/* Font size */
+
 .h1 {
   @apply text-[64px] leading-[72px];
 }
@@ -44,6 +46,16 @@
 .small {
   @apply text-xs;
 }
+
+.overline-sm {
+  @apply text-[8px] leading-[8px];
+}
+
+.overline-lg {
+  @apply text-xs leading-[12px];
+}
+
+/* Font weight */
 
 .medium {
   @apply !font-medium;
