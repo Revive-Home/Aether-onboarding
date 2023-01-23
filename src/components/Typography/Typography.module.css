@@ -1,27 +1,27 @@
 .baseStyle {
 }
 
-.heading1 {
+.h1 {
   @apply text-[64px] leading-[72px];
 }
 
-.heading2 {
+.h2 {
   @apply text-5xl leading-[56px];
 }
 
-.heading3 {
+.h3 {
   @apply text-[40px] leading-[48px];
 }
 
-.heading4 {
+.h4 {
   @apply text-[32px] leading-[40px];
 }
 
-.heading5 {
+.h5 {
   @apply text-2xl;
 }
 
-.heading6 {
+.h6 {
   @apply text-xl;
 }
 
