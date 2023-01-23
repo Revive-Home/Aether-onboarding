@@ -1,0 +1,258 @@
+import { ArgsTable, Canvas, Meta, Source, Story } from "@storybook/addon-docs";
+
+import { Typography } from "./Typography";
+
+<Meta
+  title="Foundation/Typography"
+  component={Typography}
+  parameters={{
+    viewMode: "docs",
+  }}
+  argTypes={{
+    className: {
+      control: false,
+    },
+    variant: {
+      options: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "subtitle",
+        "body",
+        "body2",
+        "link",
+        "small",
+      ],
+      control: { type: "select" },
+    },
+    weight: {
+      options: ["medium", "semibold", "bold", "default"],
+      control: { type: "select" },
+    },
+  }}
+/>
+
+export const Template = (args) => <Typography {...args} />;
+
+# Typography
+
+## Overview
+
+Use typography to present your design and content as clearly and efficiently as possible.
+
+<Canvas withSource="open">
+  <Story
+    name="Overview"
+    args={{
+      variant: "body",
+      children: "Typography Overview",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+### Fonts
+
+Aether uses Poppins as a main font and Nunito as secondary font. And these fonts will not be loaded automatically.
+
+An example of importing Poppins and Nunito.
+
+<Source
+  language='html'
+  dark
+  format={true}
+  code={`
+    <!-- index.html -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  `}
+/>
+
+<Source
+  language="css"
+  dark
+  format={true}
+  code={`
+    /** main.css */
+    html,
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+  `}
+/>
+
+### Changing the semantic element
+
+You can change the underlying element for a one-off situation with the `as` prop:
+
+<Source
+  language="typescript"
+  dark
+  format={true}
+  code={`
+    // There is already an h1 in the page, let's not duplicate it.
+    <Typography variant="h1" as="h2">
+      h1. Heading
+    </Typography>;
+      `}
+/>
+
+The code above will render an `h2` element with `h1` styling.
+
+## Text Styles
+
+### Regular
+
+<Canvas>
+  <Story name="Regular">
+    <div className="flex flex-col gap-y-4">
+      <Typography variant="h1">Heading 1</Typography>
+      <Typography variant="h2">Heading 2</Typography>
+      <Typography variant="h3">Heading 3</Typography>
+      <Typography variant="h4">Heading 4</Typography>
+      <Typography variant="h5">Heading 5</Typography>
+      <Typography variant="h6">Heading 6</Typography>
+      <Typography variant="subtitle">Subtitle</Typography>
+      <Typography variant="body">Body Text</Typography>
+      <Typography variant="body2">Body Text 2</Typography>
+      <Typography variant="link">Link</Typography>
+      <Typography variant="small">Small</Typography>
+    </div>
+  </Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+  <Story name="Medium">
+    <div className="flex flex-col gap-y-4">
+      <Typography variant="h1" weight="medium">
+        Heading 1
+      </Typography>
+      <Typography variant="h2" weight="medium">
+        Heading 2
+      </Typography>
+      <Typography variant="h3" weight="medium">
+        Heading 3
+      </Typography>
+      <Typography variant="h4" weight="medium">
+        Heading 4
+      </Typography>
+      <Typography variant="h5" weight="medium">
+        Heading 5
+      </Typography>
+      <Typography variant="h6" weight="medium">
+        Heading 6
+      </Typography>
+      <Typography variant="subtitle" weight="medium">
+        Subtitle
+      </Typography>
+      <Typography variant="body" weight="medium">
+        Body Text
+      </Typography>
+      <Typography variant="body2" weight="medium">
+        Body Text 2
+      </Typography>
+      <Typography variant="link" weight="medium">
+        Link
+      </Typography>
+      <Typography variant="small" weight="medium">
+        Small
+      </Typography>
+    </div>
+  </Story>
+</Canvas>
+
+### Semibold
+
+<Canvas>
+  <Story name="Semibold">
+    <div className="flex flex-col gap-y-4">
+      <Typography variant="h1" weight="semibold">
+        Heading 1
+      </Typography>
+      <Typography variant="h2" weight="semibold">
+        Heading 2
+      </Typography>
+      <Typography variant="h3" weight="semibold">
+        Heading 3
+      </Typography>
+      <Typography variant="h4" weight="semibold">
+        Heading 4
+      </Typography>
+      <Typography variant="h5" weight="semibold">
+        Heading 5
+      </Typography>
+      <Typography variant="h6" weight="semibold">
+        Heading 6
+      </Typography>
+      <Typography variant="subtitle" weight="semibold">
+        Subtitle
+      </Typography>
+      <Typography variant="body" weight="semibold">
+        Body Text
+      </Typography>
+      <Typography variant="body2" weight="semibold">
+        Body Text 2
+      </Typography>
+      <Typography variant="link" weight="semibold">
+        Link
+      </Typography>
+      <Typography variant="small" weight="semibold">
+        Small
+      </Typography>
+    </div>
+  </Story>
+</Canvas>
+
+### Bold
+
+<Canvas>
+  <Story name="Bold">
+    <div className="flex flex-col gap-y-4">
+      <Typography variant="h1" weight="bold">
+        Heading 1
+      </Typography>
+      <Typography variant="h2" weight="bold">
+        Heading 2
+      </Typography>
+      <Typography variant="h3" weight="bold">
+        Heading 3
+      </Typography>
+      <Typography variant="h4" weight="bold">
+        Heading 4
+      </Typography>
+      <Typography variant="h5" weight="bold">
+        Heading 5
+      </Typography>
+      <Typography variant="h6" weight="bold">
+        Heading 6
+      </Typography>
+      <Typography variant="subtitle" weight="bold">
+        Subtitle
+      </Typography>
+      <Typography variant="body" weight="bold">
+        Body Text
+      </Typography>
+      <Typography variant="body2" weight="bold">
+        Body Text 2
+      </Typography>
+      <Typography variant="link" weight="bold">
+        Link
+      </Typography>
+      <Typography variant="small" weight="bold">
+        Small
+      </Typography>
+    </div>
+  </Story>
+</Canvas>
