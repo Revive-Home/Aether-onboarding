@@ -26,12 +26,9 @@
 
 /* States */
 
-.disabled {
-  @apply opacity-40 cursor-not-allowed;
-}
-
+.disabled,
 .loading {
-  @apply !gap-0 opacity-40 cursor-not-allowed;
+  @apply opacity-40 cursor-not-allowed;
 }
 
 /* Size */

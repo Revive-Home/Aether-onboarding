@@ -85,12 +85,12 @@ Link.args = {
 
 export const Loading = Template.bind({});
 Loading.args = {
-  variant: "turquoise",
+  variant: "primary",
   children: "Loading Button",
   loading: true,
   onClick: () => {},
   type: "submit",
-  size: "lg",
+  size: "sm",
 };
 
 export const FullWidth = Template.bind({});
