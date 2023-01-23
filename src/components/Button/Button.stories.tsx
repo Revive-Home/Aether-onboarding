@@ -47,7 +47,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   variant: "primary",
   children: "Test Button",
-  leftIcon: leftArrow,
   rightIcon: rightArrow,
   onClick: () => {},
   type: "button",
@@ -82,6 +81,16 @@ Link.args = {
   type: "button",
   size: "sm",
   href: "http://google.com",
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  variant: "turquoise",
+  children: "Loading Button",
+  loading: true,
+  onClick: () => {},
+  type: "submit",
+  size: "lg",
 };
 
 export const FullWidth = Template.bind({});
