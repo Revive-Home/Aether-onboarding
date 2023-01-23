@@ -1,6 +1,8 @@
 .baseStyle {
-  @apply h-full text-base font-semibold border-0 rounded-lg p-[18px] transition-all ease-in-out text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
+  @apply h-full text-base font-semibold border-0 rounded-lg transition-all ease-in-out text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
 }
+
+/* Theme */
 
 .primary {
   @apply text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
@@ -18,6 +20,8 @@
   @apply text-white bg-green-300 enabled:hover:bg-green-200;
 }
 
+/* States */
+
 .disabled {
   @apply opacity-40 cursor-not-allowed;
 }
@@ -28,4 +32,14 @@
 
 .hasIcon > svg {
   @apply w-5 h-5;
+}
+
+/* Size */
+
+.lg {
+  @apply p-[18px];
+}
+
+.sm {
+  @apply px-3 py-[10px];
 }

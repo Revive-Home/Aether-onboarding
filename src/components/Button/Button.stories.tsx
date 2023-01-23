@@ -52,3 +52,23 @@ Primary.args = {
   onClick: () => {},
   type: "button",
 };
+
+export const Small = Template.bind({});
+Small.args = {
+  variant: "secondary",
+  children: "Small Button",
+  leftIcon: leftArrow,
+  rightIcon: rightArrow,
+  onClick: () => {},
+  type: "button",
+  size: "sm",
+};
+
+export const NoIcon = Template.bind({});
+NoIcon.args = {
+  variant: "gray",
+  children: "No Icon Button",
+  onClick: () => {},
+  type: "button",
+  size: "lg",
+};

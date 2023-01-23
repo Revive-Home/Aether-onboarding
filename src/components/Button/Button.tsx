@@ -20,9 +20,11 @@ export interface Props {
   onClick?: () => void;
   /** Icon to display on the right */
   rightIcon?: JSX.Element;
+  /** Specify the size of the button */
+  size?: "sm" | "lg";
   /** Provide the type of the button */
   type?: "submit" | "button";
-  /** Specify the style of the button */
+  /** Specify the theme of the button */
   variant: "primary" | "secondary" | "gray" | "turquoise";
 }
 
@@ -35,17 +37,18 @@ export const Button = ({
   loading,
   onClick,
   rightIcon,
+  size = "lg",
   type,
   variant,
   ...rest
 }: Props & React.HTMLAttributes<HTMLButtonElement>) => {
-  const hasIcon = leftIcon ? !!leftIcon : undefined;
   const classes = clsx(
     "aether-button",
     ButtonClasses.baseStyle,
+    ButtonClasses[size],
     ButtonClasses[variant],
     disabled && ButtonClasses.disabled,
-    hasIcon && ButtonClasses.hasIcon,
+    (leftIcon || rightIcon) && ButtonClasses.hasIcon,
     className
   );
 
