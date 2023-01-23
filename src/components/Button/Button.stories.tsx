@@ -51,6 +51,7 @@ Primary.args = {
   rightIcon: rightArrow,
   onClick: () => {},
   type: "button",
+  "aria-label": "test label",
 };
 
 export const Small = Template.bind({});
@@ -71,4 +72,24 @@ NoIcon.args = {
   onClick: () => {},
   type: "button",
   size: "lg",
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  variant: "turquoise",
+  children: "External link",
+  onClick: () => {},
+  type: "button",
+  size: "sm",
+  href: "http://google.com",
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  variant: "primary",
+  children: "Full Width Button",
+  onClick: () => {},
+  type: "button",
+  size: "sm",
+  fullWidth: true,
 };

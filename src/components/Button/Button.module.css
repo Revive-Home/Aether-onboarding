@@ -43,3 +43,7 @@
 .sm {
   @apply px-3 py-[10px];
 }
+
+.fullWidth {
+  @apply w-full;
+}
