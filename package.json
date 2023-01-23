@@ -24,7 +24,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "vitest",
-    "chromatic":"npx chromatic --project-token=55d4e402c5c9"
+    "chromatic": "npx chromatic --project-token=55d4e402c5c9"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
