@@ -1,34 +1,80 @@
+import { useCallback } from "react";
 import clsx from "clsx";
 
-export interface ButtonProps {
+import ButtonClasses from "./Button.module.css";
+
+export interface Props {
+  /** Provide a custom area-label that is applied directly to the button */
+  ariaLabel?: string;
+  /** Text within the button */
+  children: React.ReactNode | React.ReactNode[];
+  /** Provide a custom className that is applied directly to the button */
   className?: string;
+  /** Specify whether the control is disabled */
   disabled?: boolean;
-  label: string;
-  leftIcon: JSX.Element;
-  rightIcon: JSX.Element;
-  size?: "default" | "lg";
-  theme?: "light" | "dark";
-  variant?: "primary" | "secondary" | "grey" | "turquoise";
+  /** Icon to display on the left */
+  leftIcon?: JSX.Element;
+  /** When true, it disables the button. */
+  loading?: boolean;
+  /** Provide an onClick handler that is called whenever button is clicked */
+  onClick?: () => void;
+  /** Icon to display on the right */
+  rightIcon?: JSX.Element;
+  /** Provide the type of the button */
+  type?: "submit" | "button";
+  /** Specify the style of the button */
+  variant: "primary" | "secondary" | "gray" | "turquoise";
 }
 
 export const Button = ({
+  ariaLabel,
+  children,
   className,
   disabled,
-  label,
   leftIcon,
+  loading,
+  onClick,
   rightIcon,
-  size,
-  theme,
+  type,
   variant,
-}: ButtonProps): JSX.Element => {
+  ...rest
+}: Props & React.HTMLAttributes<HTMLButtonElement>) => {
+  const hasIcon = leftIcon ? !!leftIcon : undefined;
   const classes = clsx(
-    `h-full font-semibold border-0 rounded-lg px-10 py-3 transition-all ease-in-out text-white bg-darkPurple-500 hover:bg-darkPurple-500`,
+    "aether-button",
+    ButtonClasses.baseStyle,
+    ButtonClasses[variant],
+    disabled && ButtonClasses.disabled,
+    hasIcon && ButtonClasses.hasIcon,
     className
   );
 
+  if (loading) {
+    rest["aria-busy"] = true;
+    rest["aria-label"] = rest["aria-label"] || "Label";
+    rest["aria-live"] = "polite";
+  }
+
+  const handleOnClick = useCallback(() => {
+    if (!disabled) {
+      if (onClick) {
+        onClick();
+      }
+    }
+  }, [disabled, onClick]);
+
   return (
-    <button className={classes} disabled={disabled}>
-      {label}
+    <button
+      className={classes}
+      onClick={handleOnClick}
+      type={type === "submit" ? "submit" : "button"}
+      disabled={disabled}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      {leftIcon ? leftIcon : null}
+      {children}
+      {rightIcon ? rightIcon : null}
     </button>
   );
 };
