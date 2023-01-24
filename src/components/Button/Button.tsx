@@ -149,3 +149,5 @@ export const Button = ({
 };
 
 Button.Group = ButtonGroup;
+
+Button.displayName = "Button";

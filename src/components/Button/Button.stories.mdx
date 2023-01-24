@@ -6,7 +6,9 @@ import { ArrowIcon } from "./mocks/ArrowIcon";
 <Meta
   title="Buttons/Button"
   component={Button}
-  subcomponents={Button.Group}
+  subcomponents={{
+    "Button.Group": Button.Group,
+  }}
   parameters={{
     viewMode: "docs",
   }}
@@ -62,6 +64,7 @@ Buttons enable users to initiate an action or event with a single press. These a
 - Buttons can have icons on either the left, right, or both sides.
 - A loading spinner should be shown when an action is submitted and is still being processed.
 - Use only one primary button and any additional actions should be represented as buttons with lower emphasis.
+- Use Button.Group subcomponent to group together the buttons that are related to each other.
 
 ## Button Styles
 
