@@ -1,5 +1,5 @@
 .baseStyle {
-  @apply flex items-center justify-between gap-2 h-full text-base font-semibold border-0 rounded-lg transition-all ease-in-out text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
+  @apply flex items-center justify-center gap-2 h-full text-base font-semibold border-0 rounded-lg transition-all ease-in-out text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
 }
 
 .baseStyle > svg {
@@ -28,7 +28,7 @@
 
 .disabled,
 .loading {
-  @apply opacity-40 cursor-not-allowed;
+  @apply opacity-20 cursor-not-allowed;
 }
 
 /* Size */
