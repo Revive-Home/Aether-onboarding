@@ -1,0 +1,70 @@
+.baseStyle {
+}
+
+/* Font size */
+
+.h1 {
+  @apply text-[64px] leading-[72px];
+}
+
+.h2 {
+  @apply text-5xl leading-[56px];
+}
+
+.h3 {
+  @apply text-[40px] leading-[48px];
+}
+
+.h4 {
+  @apply text-[32px] leading-[40px];
+}
+
+.h5 {
+  @apply text-2xl;
+}
+
+.h6 {
+  @apply text-xl;
+}
+
+.subtitle {
+  @apply text-lg leading-6;
+}
+
+.body {
+  @apply text-base leading-5;
+}
+
+.body2 {
+  @apply text-sm;
+}
+
+.link {
+  @apply text-sm leading-[18px];
+}
+
+.small {
+  @apply text-xs;
+}
+
+.overline-sm {
+  @apply text-[8px] leading-[8px];
+}
+
+.overline-lg {
+  @apply text-xs leading-[12px];
+}
+
+/* Font weight */
+
+.medium {
+  @apply !font-medium;
+}
+
+.semibold {
+  @apply !font-semibold;
+}
+
+.bold {
+  @apply !font-bold;
+}

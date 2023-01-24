@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: "jit",
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      // `sans` is the default font in Tailwind. Overriding it will change the default font.
+      sans: ["Poppins", "sans-serif"],
+      nunito: ["Nunito", "sans-serif"],
+    },
     colors: {
       black: "#000",
       white: "#fff",
