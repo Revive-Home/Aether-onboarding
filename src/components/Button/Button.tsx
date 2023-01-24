@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 import clsx from "clsx";
 
+import { ButtonGroup } from "./ButtonGroup";
+
 import ButtonClasses from "./Button.module.css";
 
 export interface Props
   extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-  /** Provide a custom area-label that is applied directly to the button */
-  ariaLabel?: string;
   /** Text within the button */
   children: React.ReactNode | React.ReactNode[];
   /** Provide a custom className that is applied directly to the button */
@@ -34,7 +34,6 @@ export interface Props
 }
 
 export const Button = ({
-  ariaLabel,
   children,
   className,
   disabled,
@@ -84,9 +83,9 @@ export const Button = ({
         d="m1,12C1,5.92,5.92,1,12,1"
         fill="none"
         stroke="currentColor"
-        stroke-miterlimit="10"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -101,9 +100,9 @@ export const Button = ({
         d="m1,12C1,5.92,5.92,1,12,1"
         fill="none"
         stroke="currentColor"
-        stroke-miterlimit="10"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
@@ -148,3 +147,5 @@ export const Button = ({
     </button>
   );
 };
+
+Button.Group = ButtonGroup;
