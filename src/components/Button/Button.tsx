@@ -5,18 +5,18 @@ import { ButtonGroup } from "./ButtonGroup";
 
 import ButtonClasses from "./Button.module.css";
 
-export interface Props
+export interface ButtonProps
   extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   /** Text within the button */
-  children: React.ReactNode | React.ReactNode[];
+  children?: React.ReactNode | React.ReactNode[];
   /** Provide a custom className that is applied directly to the button */
   className?: string;
   /** Specify whether the control is disabled */
   disabled?: boolean;
-  /** The URL to link to when the button is clicked. If defined, an a element will be used as the root node. */
-  href?: string;
   /** If true, the button will take up the full width of its container. */
   fullWidth?: boolean;
+  /** The URL to link to when the button is clicked. If defined, an a element will be used as the root node. */
+  href?: string;
   /** Icon to display on the left */
   leftIcon?: JSX.Element;
   /** When true, it disables the button. */
@@ -47,7 +47,7 @@ export const Button = ({
   type,
   variant,
   ...rest
-}: Props) => {
+}: ButtonProps) => {
   const classes = clsx(
     "aether-button",
     ButtonClasses.baseStyle,
@@ -151,3 +151,17 @@ export const Button = ({
 Button.Group = ButtonGroup;
 
 Button.displayName = "Button";
+
+Button.defaultProps = {
+  className: "",
+  disabled: false,
+  fullWidth: false,
+  href: "",
+  leftIcon: null,
+  loading: false,
+  onClick: null,
+  rightIcon: null,
+  size: "lg",
+  type: "button",
+  variant: "primary",
+};
