@@ -73,6 +73,7 @@ export const Button = ({
     }
   }, [disabled, onClick]);
 
+  // TODO: Replace with Spinner component
   const spinnerWhite = (
     <svg
       className="animate-spin text-white"
@@ -90,6 +91,7 @@ export const Button = ({
     </svg>
   );
 
+  // TODO: Replace with Spinner component
   const spinnerBlack = (
     <svg
       className="animate-spin text-black"

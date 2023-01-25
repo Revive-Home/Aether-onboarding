@@ -66,6 +66,7 @@ module.exports = {
         300: "#EA4B48",
         400: "#E73936",
       },
+      transparent: "rgba(255, 255, 255, 0)",
     },
   },
   plugins: [],
