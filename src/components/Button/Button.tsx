@@ -26,7 +26,7 @@ export interface ButtonProps
   /** Icon to display on the right */
   rightIcon?: JSX.Element;
   /** Specify the size of the button */
-  size?: "sm" | "lg";
+  size?: "default" | "lg";
   /** Provide the type of the button */
   type?: "submit" | "button";
   /** Specify the theme of the button */
@@ -161,7 +161,7 @@ Button.defaultProps = {
   loading: false,
   onClick: null,
   rightIcon: null,
-  size: "lg",
+  size: "default",
   type: "button",
   variant: "primary",
 };

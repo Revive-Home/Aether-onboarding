@@ -38,7 +38,7 @@ import { ArrowIcon } from "./mocks/ArrowIcon";
       control: false,
     },
     size: {
-      options: ["sm", "lg"],
+      options: ["default", "lg"],
       control: { type: "radio" },
     },
     type: {
@@ -105,11 +105,11 @@ Multiple buttons can appear on a single screen, however use appropriate variant 
 <Canvas>
   <Story name="Sizes">
     <Button.Group>
+      <Button variant="primary" size="default">
+        Default
+      </Button>
       <Button variant="primary" size="lg">
         Large
-      </Button>
-      <Button variant="primary" size="sm">
-        Small
       </Button>
     </Button.Group>
   </Story>

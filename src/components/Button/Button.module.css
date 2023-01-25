@@ -37,7 +37,7 @@
   @apply p-[18px];
 }
 
-.sm {
+.default {
   @apply px-3 py-[10px];
 }
 
