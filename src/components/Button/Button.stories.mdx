@@ -16,20 +16,37 @@ import { ArrowIcon } from "./mocks/ArrowIcon";
     className: {
       control: false,
     },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    fullWidth: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    href: {
+      control: false,
+    },
+    leftIcon: {
+      control: false,
+    },
+    loading: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    rightIcon: {
+      control: false,
+    },
     size: {
       options: ["sm", "lg"],
-      control: { type: "select" },
+      control: { type: "radio" },
     },
     type: {
       options: ["submit", "button"],
-      control: { type: "select" },
+      control: { type: "radio" },
     },
     variant: {
       options: ["primary", "secondary", "gray", "turquoise"],
-      control: { type: "select" },
-    },
-    weight: {
-      options: ["medium", "semibold", "bold", "default"],
       control: { type: "select" },
     },
   }}
