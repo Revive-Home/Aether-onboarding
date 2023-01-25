@@ -1,3 +1,6 @@
+import prettier from "prettier/standalone";
+import prettierBabel from "prettier/parser-babel";
+
 import "tailwindcss/tailwind.css";
 
 export const parameters = {
@@ -7,5 +10,12 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  docs: {
+    transformSource: (input) =>
+      prettier
+        .format(input, { parser: "babel", plugins: [prettierBabel] })
+        .trim()
+        .slice(0, -1),
   },
 };

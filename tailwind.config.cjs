@@ -12,7 +12,7 @@ module.exports = {
     colors: {
       black: "#000",
       white: "#fff",
-      grey: {
+      gray: {
         100: "#F4F5F5",
         200: "#ECEDEF",
         300: "#B1B3B5",
@@ -30,6 +30,11 @@ module.exports = {
         400: "#3E3B91",
         500: "#322F74",
         600: "#242254",
+      },
+      transparentDarkPurple: {
+        100: "rgba(127, 125, 202, 0.4)",
+        200: "rgba(127, 125, 202, 0.6)",
+        300: "rgba(127, 125, 202, 0.8)",
       },
       lightPurple: {
         100: "#F2F2F8",
@@ -61,6 +66,7 @@ module.exports = {
         300: "#EA4B48",
         400: "#E73936",
       },
+      transparent: "rgba(255, 255, 255, 0)",
     },
   },
   plugins: [],

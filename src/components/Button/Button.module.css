@@ -1,0 +1,46 @@
+.baseStyle {
+  @apply flex items-center justify-center gap-2 h-full text-base font-semibold border-2 border-transparent rounded-lg transition-all ease-in-out text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400;
+}
+
+.baseStyle > svg {
+  @apply w-5 h-5;
+}
+
+/* Theme */
+
+.primary {
+  @apply text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400 enabled:active:border-lightPurple-200;
+}
+
+.secondary {
+  @apply text-darkPurple-500 bg-transparentDarkPurple-100 enabled:hover:bg-transparentDarkPurple-200 enabled:active:border-darkPurple-500;
+}
+
+.gray {
+  @apply text-black bg-gray-200 enabled:hover:bg-gray-300 enabled:active:border-black;
+}
+
+.turquoise {
+  @apply text-white bg-green-300 enabled:hover:bg-green-200 enabled:active:border-green-400;
+}
+
+/* States */
+
+.disabled,
+.loading {
+  @apply opacity-20 cursor-not-allowed;
+}
+
+/* Size */
+
+.lg {
+  @apply p-[18px] h-14 min-w-[120px];
+}
+
+.default {
+  @apply px-3 py-2 h-10;
+}
+
+.fullWidth {
+  @apply w-full;
+}

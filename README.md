@@ -31,6 +31,10 @@ Run `yarn storybook` to start Storybook for development.
 
 To style the components, Aether uses [TailwindCSS](https://tailwindcss.com/).
 
+#### Overriding the styles
+
+The styling of Aether components can be overridden in the consumer apps by passing the Tailwind classes to the className prop.
+
 **_TODO: Add tailwind guideline/practice_**
 
 **Theme**

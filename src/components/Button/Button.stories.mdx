@@ -1,0 +1,186 @@
+import { ArgsTable, Canvas, Meta, Source, Story } from "@storybook/addon-docs";
+
+import { Button } from "./Button";
+import { ArrowIcon } from "./mocks/ArrowIcon";
+
+<Meta
+  title="Buttons/Button"
+  component={Button}
+  subcomponents={{
+    "Button.Group": Button.Group,
+  }}
+  parameters={{
+    viewMode: "docs",
+  }}
+  argTypes={{
+    className: {
+      control: false,
+    },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    fullWidth: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    href: {
+      control: false,
+    },
+    leftIcon: {
+      control: false,
+    },
+    loading: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    rightIcon: {
+      control: false,
+    },
+    size: {
+      options: ["default", "lg"],
+      control: { type: "radio" },
+    },
+    type: {
+      options: ["submit", "button"],
+      control: { type: "radio" },
+    },
+    variant: {
+      options: ["primary", "secondary", "gray", "turquoise"],
+      control: { type: "select" },
+    },
+  }}
+/>
+
+export const Template = (args) => <Button {...args} />;
+
+# Button
+
+## Overview
+
+Buttons enable users to initiate an action or event with a single press. These actions can include submitting a form, opening a dialog, canceling an action, or deleting something.
+
+<Canvas withSource="open">
+  <Story
+    name="Overview"
+    args={{
+      variant: "primary",
+      children: "Primary Button",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+- Buttons can have icons on either the left, right, or both sides.
+- A loading spinner should be shown when an action is submitted and is still being processed.
+- Use only one primary button and any additional actions should be represented as buttons with lower emphasis.
+- Use Button.Group subcomponent to group together the buttons that are related to each other.
+
+## Button Styles
+
+### Variants
+
+Multiple buttons can appear on a single screen, however use appropriate variant to create the hierarchy.
+
+<Canvas>
+  <Story name="All buttons">
+    <Button.Group>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="gray">Gray</Button>
+      <Button variant="turquoise">Turquoise</Button>
+    </Button.Group>
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    <Button.Group>
+      <Button variant="primary" size="default">
+        Default
+      </Button>
+      <Button variant="primary" size="lg">
+        Large
+      </Button>
+    </Button.Group>
+  </Story>
+</Canvas>
+
+### Disabled
+
+Use a disabled button for items that cannot be used. Use tooltips on hover to explain the reason for the disabled action.
+
+<Canvas>
+  <Story name="Disabled">
+    <Button.Group>
+      <Button variant="primary" disabled>
+        Primary
+      </Button>
+      <Button variant="secondary" disabled>
+        Secondary
+      </Button>
+      <Button variant="gray" disabled>
+        Gray
+      </Button>
+      <Button variant="turquoise" disabled>
+        Turquoise
+      </Button>
+    </Button.Group>
+  </Story>
+</Canvas>
+
+### With Icons
+
+Buttons can have icons on either the left, right, or both sides.
+
+<Canvas>
+  <Story name="With Icons">
+    <Button.Group>
+      <Button variant="primary" leftIcon={<ArrowIcon direction="left" />}>
+        Left Icon
+      </Button>
+      <Button variant="secondary" rightIcon={<ArrowIcon direction="right" />}>
+        Right Icon
+      </Button>
+      <Button
+        variant="gray"
+        leftIcon={<ArrowIcon direction="left" />}
+        rightIcon={<ArrowIcon direction="right" />}
+      >
+        Two Icons
+      </Button>
+    </Button.Group>
+  </Story>
+</Canvas>
+
+### Loading
+
+A loading spinner should be shown when an action is submitted and is still being processed.
+
+<Canvas>
+  <Story name="Loading">
+    <Button.Group>
+      <Button variant="primary" loading={true}>
+        Primary
+      </Button>
+      <Button variant="secondary" loading={true}>
+        Secondary
+      </Button>
+      <Button variant="gray" loading={true}>
+        Gray
+      </Button>
+      <Button variant="turquoise" loading={true}>
+        Turquoise
+      </Button>
+    </Button.Group>
+  </Story>
+</Canvas>

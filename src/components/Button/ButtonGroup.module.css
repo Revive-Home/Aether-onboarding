@@ -1,0 +1,15 @@
+.baseStyle {
+  @apply flex flex-row items-center gap-2;
+}
+
+.left {
+  @apply justify-start;
+}
+
+.center {
+  @apply justify-center;
+}
+
+.right {
+  @apply justify-end;
+}
