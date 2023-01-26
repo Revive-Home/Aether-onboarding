@@ -7,13 +7,20 @@ export interface ButtonGroupProps {
   align?: "left" | "center" | "right";
   /** The content of the component. */
   children: React.ReactNode;
+  /** Provide a custom className that is applied directly to the button */
+  className?: string;
 }
 
-export const ButtonGroup = ({ align, children }: ButtonGroupProps) => {
+export const ButtonGroup = ({
+  align,
+  children,
+  className,
+}: ButtonGroupProps) => {
   const classes = clsx(
     "aether-button-group",
     ButtonGroupClasses.baseStyle,
-    align && ButtonGroupClasses[align]
+    align && ButtonGroupClasses[align],
+    className
   );
 
   return <div className={classes}>{children}</div>;
