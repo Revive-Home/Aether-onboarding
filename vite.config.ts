@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import libCss from "vite-plugin-libcss";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,7 +30,7 @@ export default defineConfig({
       insertTypesEntry: true,
     }),
     react(),
-    libCss(),
+    cssInjectedByJsPlugin(),
   ],
   resolve: {
     alias: {
