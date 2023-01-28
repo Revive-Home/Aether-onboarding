@@ -17,7 +17,7 @@ export interface TypographyProps {
   /** Applies the theme typography styles. */
   variant: VariantProps;
   /** Optional attribute applies different font weight */
-  weight: "medium" | "semibold" | "bold" | "default";
+  weight?: "medium" | "semibold" | "bold" | "default";
 }
 
 export const Typography = ({
