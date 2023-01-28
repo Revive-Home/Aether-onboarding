@@ -30,7 +30,7 @@ export interface ButtonProps
   /** Provide the type of the button */
   type?: "submit" | "button";
   /** Specify the theme of the button */
-  variant: "primary" | "secondary" | "gray" | "turquoise";
+  variant?: "primary" | "secondary" | "gray" | "turquoise";
 }
 
 export const Button = ({
@@ -43,7 +43,7 @@ export const Button = ({
   loading,
   onClick,
   rightIcon,
-  size = "lg",
+  size = "default",
   type,
   variant,
   ...rest
@@ -52,7 +52,7 @@ export const Button = ({
     "aether-button",
     ButtonClasses.baseStyle,
     ButtonClasses[size],
-    ButtonClasses[variant],
+    variant && ButtonClasses[variant],
     disabled && ButtonClasses.disabled,
     fullWidth && ButtonClasses.fullWidth,
     loading && ButtonClasses.loading,
