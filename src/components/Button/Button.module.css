@@ -9,7 +9,7 @@
 /* Theme */
 
 .primary {
-  @apply text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-400 enabled:active:border-lightPurple-200;
+  @apply text-white bg-darkPurple-500 enabled:hover:bg-darkPurple-600 enabled:active:border-lightPurple-200;
 }
 
 .secondary {
@@ -21,7 +21,7 @@
 }
 
 .turquoise {
-  @apply text-white bg-green-300 enabled:hover:bg-green-200 enabled:active:border-green-400;
+  @apply text-white bg-green-300 enabled:hover:bg-green-400 enabled:active:border-green-500;
 }
 
 /* States */
