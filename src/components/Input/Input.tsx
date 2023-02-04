@@ -39,8 +39,15 @@ export const Input = ({
 }: InputProps) => {
   const classes = clsx(
     inputClasses.baseStyle,
-    hasError && inputClasses.error,
+    hasError && inputClasses.errorBorder,
+    disabled && inputClasses.disabled,
     className
+  );
+
+  const suffixClasses = clsx(
+    inputClasses.infoIcon,
+    disabled && inputClasses.disabled,
+    hasError && inputClasses.error
   );
 
   const handleInputChange = useCallback(
@@ -67,7 +74,7 @@ export const Input = ({
     <Typography
       variant="body2"
       weight="default"
-      className={`mt-1 pl-4 text-gray-400 ${hasError && "text-red-300"}`}
+      className={`mt-1 pl-4 text-gray-400 ${hasError && inputClasses.error}`}
     >
       {assistiveText}
     </Typography>
@@ -92,19 +99,14 @@ export const Input = ({
     <div className="w-full relative">
       <input
         className={classes}
+        disabled={disabled}
         onChange={handleInputChange}
         placeholder="Input text"
         required={required}
         type="text"
         value={value}
       />
-      <span
-        className={`info-icon absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-darkPurple-500 ${
-          hasError && "text-red-300"
-        }`}
-      >
-        {infoIcon}
-      </span>
+      <span className={suffixClasses}>{infoIcon}</span>
     </div>
   );
 
