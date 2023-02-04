@@ -70,22 +70,6 @@ export const Input: React.FC<InputProps> = ({
     [disabled, onChange]
   );
 
-  const customInput = (
-    <div className="w-full relative">
-      <input
-        autoFocus={autoFocus}
-        className={classes}
-        disabled={disabled}
-        onChange={handleInputChange}
-        placeholder={placeholder}
-        required={required}
-        type="text"
-        value={value}
-      />
-      {showInfoIcon ? <InformationCircleIcon className={iconClasses} /> : null}
-    </div>
-  );
-
   return (
     <div className="flex flex-col">
       {label ? (
@@ -103,7 +87,23 @@ export const Input: React.FC<InputProps> = ({
           ) : null}
         </div>
       ) : null}
-      {customInput}
+
+      <div className="w-full relative">
+        <input
+          autoFocus={autoFocus}
+          className={classes}
+          disabled={disabled}
+          onChange={handleInputChange}
+          placeholder={placeholder}
+          required={required}
+          type="text"
+          value={value}
+        />
+        {showInfoIcon ? (
+          <InformationCircleIcon className={iconClasses} />
+        ) : null}
+      </div>
+
       {assistiveText ? (
         <Typography
           variant="body2"
