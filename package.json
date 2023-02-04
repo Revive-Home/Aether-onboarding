@@ -18,10 +18,10 @@
   },
   "sideEffects": false,
   "scripts": {
-    "dev": "vite",
+    "dev": "start-storybook -p 6006",
+    "start": "vite",
     "build": "tsc --emitDeclarationOnly && tsc-alias && vite build",
     "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "vitest",
     "chromatic": "npx chromatic --project-token=55d4e402c5c9"
