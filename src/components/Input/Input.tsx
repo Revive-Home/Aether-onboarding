@@ -25,6 +25,8 @@ export interface InputProps {
   name?: string;
   /** Provide an onChange handler that is called whenever <input> is updated */
   onChange?: (...args: any[]) => any;
+  /** Provide placeholder text */
+  placeholder?: string;
   /** Indicates if the input is required */
   required?: boolean;
   /** If true, show info icon */
@@ -41,6 +43,7 @@ export const Input: React.FC<InputProps> = ({
   hasError,
   label,
   onChange,
+  placeholder,
   required,
   showInfoIcon,
   value,
@@ -74,7 +77,7 @@ export const Input: React.FC<InputProps> = ({
         className={classes}
         disabled={disabled}
         onChange={handleInputChange}
-        placeholder="Input text"
+        placeholder={placeholder}
         required={required}
         type="text"
         value={value}
