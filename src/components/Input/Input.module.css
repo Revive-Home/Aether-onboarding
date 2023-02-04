@@ -14,6 +14,10 @@
   @apply border border-red-300;
 }
 
+.iconWrapper {
+  @apply absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 flex;
+}
+
 .icon {
-  @apply absolute w-6 h-6 top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-darkPurple-500 cursor-pointer;
+  @apply w-6 h-6 ml-2 text-darkPurple-500 cursor-pointer;
 }

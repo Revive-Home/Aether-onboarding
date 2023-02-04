@@ -1,6 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import clsx from "clsx";
-import { InformationCircleIcon } from "@heroicons/react/24/solid";
+import {
+  InformationCircleIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/24/solid";
 
 import inputClasses from "./Input.module.css";
 
@@ -19,6 +23,8 @@ export interface InputProps {
   hasError?: boolean;
   /** Provide a unique ID */
   id?: string;
+  /** Provide a unique ID */
+  isPassword?: boolean;
   /** Text for the label to show above the input */
   label?: string;
   /** Provide a name to the input */
@@ -41,6 +47,8 @@ export const Input: React.FC<InputProps> = ({
   className,
   disabled,
   hasError,
+  id,
+  isPassword,
   label,
   onChange,
   placeholder,
@@ -48,6 +56,8 @@ export const Input: React.FC<InputProps> = ({
   showInfoIcon,
   value,
 }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const classes = clsx(
     inputClasses.baseStyle,
     hasError && inputClasses.errorBorder,
@@ -70,6 +80,9 @@ export const Input: React.FC<InputProps> = ({
     [disabled, onChange]
   );
 
+  const ShowPasswordIcon = showPassword ? EyeSlashIcon : EyeIcon;
+  const inputType = isPassword ? (showPassword ? "text" : "password") : "text";
+
   return (
     <div className="flex flex-col">
       {label ? (
@@ -83,7 +96,7 @@ export const Input: React.FC<InputProps> = ({
             {label}
           </Typography>
           {required ? (
-            <span className="text-md font-normal ml-0.5">*</span>
+            <span className="text-md text-red-300 font-normal ml-0.5">*</span>
           ) : null}
         </div>
       ) : null}
@@ -93,15 +106,27 @@ export const Input: React.FC<InputProps> = ({
           autoFocus={autoFocus}
           className={classes}
           disabled={disabled}
+          id={id}
           onChange={handleInputChange}
           placeholder={placeholder}
           required={required}
-          type="text"
+          type={inputType}
           value={value}
         />
-        {showInfoIcon ? (
-          <InformationCircleIcon className={iconClasses} />
-        ) : null}
+
+        {/* TODO: The styling breaks when 2 icons are shown. */}
+        <div className={inputClasses.iconWrapper}>
+          {/* TODO: Add hover and/or click handler for info icon */}
+          {showInfoIcon ? (
+            <InformationCircleIcon className={iconClasses} />
+          ) : null}
+          {isPassword ? (
+            <ShowPasswordIcon
+              className={iconClasses}
+              onClick={() => setShowPassword((prev) => !prev)}
+            />
+          ) : null}
+        </div>
       </div>
 
       {assistiveText ? (
