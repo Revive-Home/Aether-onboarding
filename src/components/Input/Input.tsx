@@ -6,24 +6,42 @@ import inputClasses from "./Input.module.css";
 import { Typography } from "../Typography";
 
 export interface InputProps {
+  /** Provide additional info text that is displayed below the <input> */
+  assistiveText?: string;
   /** Automatically sets focus to the input if true */
   autoFocus?: boolean;
   /** Optional Tailwind class names to override or extend the styles applied to the component. */
   className?: string;
   /** Specify whether the control is disabled */
   disabled?: boolean;
+  /** Specify whether the control is disabled */
+  hasError?: boolean;
   /** Provide a unique ID */
   id?: string;
   /** Provide a name to the input */
   name?: string;
   /** Provide an onChange handler that is called whenever <input> is updated */
   onChange?: (...args: any[]) => any;
+  /** Indicates if the input is required */
+  required?: boolean;
   /** Provide the value of the <input> */
   value?: string;
 }
 
-export const Input = ({ className, disabled, onChange, value }: InputProps) => {
-  const classes = clsx(inputClasses.baseStyle, className);
+export const Input = ({
+  assistiveText,
+  className,
+  disabled,
+  hasError = false,
+  onChange,
+  required,
+  value,
+}: InputProps) => {
+  const classes = clsx(
+    inputClasses.baseStyle,
+    hasError && inputClasses.error,
+    className
+  );
 
   const handleInputChange = useCallback(
     (value: any) => {
@@ -45,13 +63,13 @@ export const Input = ({ className, disabled, onChange, value }: InputProps) => {
     </Typography>
   );
 
-  const assistiveText = (
+  const assistiveMessage = (
     <Typography
       variant="body2"
       weight="default"
-      className="mt-1 pl-4 text-gray-400"
+      className={`mt-1 pl-4 text-gray-400 ${hasError && "text-red-300"}`}
     >
-      Assistive text
+      {assistiveText}
     </Typography>
   );
 
@@ -76,10 +94,15 @@ export const Input = ({ className, disabled, onChange, value }: InputProps) => {
         className={classes}
         onChange={handleInputChange}
         placeholder="Input text"
+        required={required}
         type="text"
         value={value}
       />
-      <span className="suffix absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-darkPurple-500">
+      <span
+        className={`info-icon absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-darkPurple-500 ${
+          hasError && "text-red-300"
+        }`}
+      >
         {infoIcon}
       </span>
     </div>
@@ -89,7 +112,7 @@ export const Input = ({ className, disabled, onChange, value }: InputProps) => {
     <div className="flex flex-col">
       {inputLabel}
       {customInput}
-      {assistiveText}
+      {assistiveMessage}
     </div>
   );
 };
