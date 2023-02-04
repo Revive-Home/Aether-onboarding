@@ -35,9 +35,10 @@ export interface InputProps {
 
 export const Input: React.FC<InputProps> = ({
   assistiveText,
+  autoFocus,
   className,
   disabled,
-  hasError = false,
+  hasError,
   label,
   onChange,
   required,
@@ -69,6 +70,7 @@ export const Input: React.FC<InputProps> = ({
   const customInput = (
     <div className="w-full relative">
       <input
+        autoFocus={autoFocus}
         className={classes}
         disabled={disabled}
         onChange={handleInputChange}
@@ -84,14 +86,19 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className="flex flex-col">
       {label ? (
-        <Typography
-          variant="overline-lg"
-          weight="medium"
-          as="label"
-          className="!text-sm mb-2"
-        >
-          {label}
-        </Typography>
+        <div className="flex">
+          <Typography
+            variant="overline-lg"
+            weight="medium"
+            as="label"
+            className="!text-sm mb-2"
+          >
+            {label}
+          </Typography>
+          {required ? (
+            <span className="text-md font-normal ml-0.5">*</span>
+          ) : null}
+        </div>
       ) : null}
       {customInput}
       {assistiveText ? (
