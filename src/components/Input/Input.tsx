@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import clsx from "clsx";
 
 import inputClasses from "./Input.module.css";
@@ -5,12 +6,33 @@ import inputClasses from "./Input.module.css";
 import { Typography } from "../Typography";
 
 export interface InputProps {
+  /** Automatically sets focus to the input if true */
+  autoFocus?: boolean;
   /** Optional Tailwind class names to override or extend the styles applied to the component. */
   className?: string;
+  /** Specify whether the control is disabled */
+  disabled?: boolean;
+  /** Provide a unique ID */
+  id?: string;
+  /** Provide a name to the input */
+  name?: string;
+  /** Provide an onChange handler that is called whenever <input> is updated */
+  onChange?: (...args: any[]) => any;
+  /** Provide the value of the <input> */
+  value?: string;
 }
 
-export const Input = ({ className }: InputProps) => {
+export const Input = ({ className, disabled, onChange, value }: InputProps) => {
   const classes = clsx(inputClasses.baseStyle, className);
+
+  const handleInputChange = useCallback(
+    (value: any) => {
+      if (!disabled) {
+        if (onChange) onChange(value);
+      }
+    },
+    [disabled, onChange]
+  );
 
   const inputLabel = (
     <Typography
@@ -50,7 +72,13 @@ export const Input = ({ className }: InputProps) => {
 
   const customInput = (
     <div className="w-full relative">
-      <input className={classes} placeholder="Input text" type="text" />
+      <input
+        className={classes}
+        onChange={handleInputChange}
+        placeholder="Input text"
+        type="text"
+        value={value}
+      />
       <span className="suffix absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2 text-darkPurple-500">
         {infoIcon}
       </span>
