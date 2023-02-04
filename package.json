@@ -1,7 +1,7 @@
 {
   "name": "@revive/aether",
   "private": false,
-  "version": "0.0.0-project-x2",
+  "version": "0.0.0",
   "type": "module",
   "files": [
     "dist"
