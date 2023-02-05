@@ -55,6 +55,7 @@ export const Input: React.FC<InputProps> = ({
   required,
   showInfoIcon,
   value,
+  ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -112,6 +113,7 @@ export const Input: React.FC<InputProps> = ({
           required={required}
           type={inputType}
           value={value}
+          {...rest}
         />
 
         {/* TODO: The styling breaks when 2 icons are shown. */}
