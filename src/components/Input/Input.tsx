@@ -60,7 +60,7 @@ export const Input: React.FC<InputProps> = ({
   required,
   showInfoIcon,
   thousandSeparator = true,
-  type,
+  type = "text",
   value,
   ...rest
 }) => {
@@ -136,7 +136,7 @@ export const Input: React.FC<InputProps> = ({
             onChange={handleInputChange}
             placeholder={placeholder}
             required={required}
-            type={inputType || type}
+            type={inputType}
             value={value}
             {...rest}
           />
