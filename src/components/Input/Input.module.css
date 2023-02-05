@@ -21,3 +21,11 @@
 .icon {
   @apply w-6 h-6 ml-2 text-darkPurple-500 cursor-pointer;
 }
+
+.prefix {
+  @apply absolute top-1/2 left-4 transform translate-x-1/2 -translate-y-1/2 flex;
+}
+
+.hasPrefix {
+  @apply pl-11;
+}

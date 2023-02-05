@@ -112,6 +112,16 @@ The `type="password"` hides the entered value. Clicking on the eye icon will sho
   </Story>
 </Canvas>
 
+### Number
+
+Inputs with the `type="number"` only accept numbers as a value.
+
+<Canvas>
+  <Story name="Number">
+    <Input label="Label" type="number" placeholder="Enter value" />
+  </Story>
+</Canvas>
+
 ### With info icon
 
 Hovering over the info icon should display additional information in a tooltip. - **_TODO_**
@@ -119,6 +129,14 @@ Hovering over the info icon should display additional information in a tooltip. 
 <Canvas>
   <Story name="With Info Icon">
     <Input label="Label" showInfoIcon placeholder="Enter text" />
+  </Story>
+</Canvas>
+
+### With prefix
+
+<Canvas>
+  <Story name="With Prefix">
+    <Input label="Label" placeholder="Enter amount" prefix="$" type="number" />
   </Story>
 </Canvas>
 

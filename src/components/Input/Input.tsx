@@ -5,6 +5,7 @@ import {
   EyeIcon,
   EyeSlashIcon,
 } from "@heroicons/react/24/solid";
+import { NumericFormat } from "react-number-format";
 
 import inputClasses from "./Input.module.css";
 
@@ -33,10 +34,16 @@ export interface InputProps {
   onChange?: (...args: any[]) => any;
   /** Provide placeholder text */
   placeholder?: string;
+  /** Prefix to display */
+  prefix?: string;
   /** Indicates if the input is required */
   required?: boolean;
   /** If true, show info icon */
   showInfoIcon?: boolean;
+  /** If true, the number input will have a thousand separator */
+  thousandSeparator?: boolean;
+  /** Provide the type of the <input> */
+  type?: "text" | "number";
   /** Provide the value of the <input> */
   value?: string;
 }
@@ -52,8 +59,11 @@ export const Input: React.FC<InputProps> = ({
   label,
   onChange,
   placeholder,
+  prefix,
   required,
   showInfoIcon,
+  thousandSeparator = true,
+  type,
   value,
   ...rest
 }) => {
@@ -63,6 +73,7 @@ export const Input: React.FC<InputProps> = ({
     inputClasses.baseStyle,
     hasError && inputClasses.errorBorder,
     disabled && inputClasses.disabled,
+    prefix && inputClasses.hasPrefix,
     className
   );
 
@@ -103,18 +114,36 @@ export const Input: React.FC<InputProps> = ({
       ) : null}
 
       <div className="w-full relative">
-        <input
-          autoFocus={autoFocus}
-          className={classes}
-          disabled={disabled}
-          id={id}
-          onChange={handleInputChange}
-          placeholder={placeholder}
-          required={required}
-          type={inputType}
-          value={value}
-          {...rest}
-        />
+        {prefix ? <span className={inputClasses.prefix}>{prefix}</span> : null}
+        {/* TODO: Refactor this conditional. Merge if possible. */}
+        {type === "number" ? (
+          <NumericFormat
+            autoFocus={autoFocus}
+            className={classes}
+            disabled={disabled}
+            id={id}
+            onChange={handleInputChange}
+            placeholder={placeholder}
+            thousandSeparator={thousandSeparator ? "," : ""}
+            required={required}
+            type={inputType || type}
+            value={value}
+            {...rest}
+          />
+        ) : (
+          <input
+            autoFocus={autoFocus}
+            className={classes}
+            disabled={disabled}
+            id={id}
+            onChange={handleInputChange}
+            placeholder={placeholder}
+            required={required}
+            type={inputType || type}
+            value={value}
+            {...rest}
+          />
+        )}
 
         {/* TODO: The styling breaks when 2 icons are shown. */}
         <div className={inputClasses.iconWrapper}>
