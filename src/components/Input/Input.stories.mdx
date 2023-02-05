@@ -1,11 +1,146 @@
+import { useState } from "react";
 import { ArgsTable, Canvas, Meta, Source, Story } from "@storybook/addon-docs";
 
 import { Input } from "./Input";
 
-<Meta title="Form/Input" component={Input} />
+<Meta
+  title="Form/Input"
+  component={Input}
+  parameters={{
+    viewMode: "docs",
+  }}
+  argTypes={{
+    autoFocus: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    disabled: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    hasError: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    isPassword: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    required: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+    showInfoIcon: {
+      control: { type: "boolean" },
+      defaultValue: false,
+    },
+  }}
+/>
 
 export const Template = (args) => <Input {...args} />;
 
+# Input
+
+## Overview
+
+Inputs allow users to enter text into a UI. They typically appear in forms and dialogs.
+
 <Canvas withSource="open">
-  <Story name="Overview">{Template.bind({})}</Story>
+  <Story
+    name="Overview"
+    args={{
+      assistiveText: "Assistive Text",
+      className: "custom-input",
+      label: "Label",
+      name: "input",
+      placeholder: "Enter text",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+
+- It is always recommended to use a placeholder in an input field.
+- Use the `password` type for password inputs to hide the value..
+- The assistive text should be provided when:
+  - The field is required
+  - The error occurs
+
+## Input Styles
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    <Input
+      assistiveText="Disabled Input"
+      disabled={true}
+      label="Label"
+      placeholder="This field is disabled"
+    />
+  </Story>
+</Canvas>
+
+### Error
+
+Use the assistive text as an error message
+
+<Canvas>
+  <Story name="Error">
+    <Input
+      assistiveText="Error Message"
+      hasError={true}
+      label="Label"
+      placeholder="Enter text"
+    />
+  </Story>
+</Canvas>
+
+### Password
+
+The `type="password"` hides the entered value. Clicking on the eye icon will show the value.
+
+<Canvas>
+  <Story name="Password">
+    <Input label="Label" isPassword placeholder="Enter password" />
+  </Story>
+</Canvas>
+
+### With info icon
+
+Hovering over the info icon should display additional information in a tooltip. - **_TODO_**
+
+<Canvas>
+  <Story name="With Info Icon">
+    <Input label="Label" showInfoIcon placeholder="Enter text" />
+  </Story>
+</Canvas>
+
+### With hooks
+
+This example uses the `useState` hook to store the value entered by the user.
+
+<Canvas>
+  <Story name="With hooks">
+    {() => {
+      const [value, setValue] = useState("");
+      return (
+        <>
+          <Input
+            onChange={({ target }) => setValue(target.value)}
+            value={value}
+            label="Label"
+            placeholder="Enter text"
+          />
+          <div>Entered value: {value}</div>
+        </>
+      );
+    }}
+  </Story>
 </Canvas>
