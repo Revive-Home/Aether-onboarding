@@ -22,10 +22,6 @@ import { Input } from "./Input";
       control: { type: "boolean" },
       defaultValue: false,
     },
-    isPassword: {
-      control: { type: "boolean" },
-      defaultValue: false,
-    },
     required: {
       control: { type: "boolean" },
       defaultValue: false,
@@ -108,7 +104,7 @@ The `type="password"` hides the entered value. Clicking on the eye icon will sho
 
 <Canvas>
   <Story name="Password">
-    <Input label="Label" isPassword placeholder="Enter password" />
+    <Input label="Label" type="password" placeholder="Enter password" />
   </Story>
 </Canvas>
 

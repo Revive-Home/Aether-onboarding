@@ -24,8 +24,6 @@ export interface InputProps {
   hasError?: boolean;
   /** Provide a unique ID */
   id?: string;
-  /** Provide a unique ID */
-  isPassword?: boolean;
   /** Text for the label to show above the input */
   label?: string;
   /** Provide a name to the input */
@@ -43,7 +41,7 @@ export interface InputProps {
   /** If true, the number input will have a thousand separator */
   thousandSeparator?: boolean;
   /** Provide the type of the <input> */
-  type?: "text" | "number";
+  type?: "text" | "number" | "password";
   /** Provide the value of the <input> */
   value?: string;
 }
@@ -55,7 +53,6 @@ export const Input: React.FC<InputProps> = ({
   disabled,
   hasError,
   id,
-  isPassword,
   label,
   onChange,
   placeholder,
@@ -93,7 +90,8 @@ export const Input: React.FC<InputProps> = ({
   );
 
   const ShowPasswordIcon = showPassword ? EyeSlashIcon : EyeIcon;
-  const inputType = isPassword ? (showPassword ? "text" : "password") : "text";
+  const inputType =
+    type === "password" ? (showPassword ? "text" : "password") : type;
 
   return (
     <div className="flex flex-col">
@@ -126,7 +124,6 @@ export const Input: React.FC<InputProps> = ({
             placeholder={placeholder}
             thousandSeparator={thousandSeparator ? "," : ""}
             required={required}
-            type={inputType || type}
             value={value}
             {...rest}
           />
@@ -151,7 +148,7 @@ export const Input: React.FC<InputProps> = ({
           {showInfoIcon ? (
             <InformationCircleIcon className={iconClasses} />
           ) : null}
-          {isPassword ? (
+          {type === "password" ? (
             <ShowPasswordIcon
               className={iconClasses}
               onClick={() => setShowPassword((prev) => !prev)}
