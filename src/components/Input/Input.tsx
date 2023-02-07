@@ -20,7 +20,7 @@ export interface InputProps {
   className?: string;
   /** Specify whether the control is disabled */
   disabled?: boolean;
-  /** Specify whether the control is disabled */
+  /** Specify whether the <input> has error */
   hasError?: boolean;
   /** Provide a unique ID */
   id?: string;
@@ -54,6 +54,7 @@ export const Input: React.FC<InputProps> = ({
   hasError,
   id,
   label,
+  name,
   onChange,
   placeholder,
   prefix,
@@ -120,6 +121,7 @@ export const Input: React.FC<InputProps> = ({
             className={classes}
             disabled={disabled}
             id={id}
+            name={name}
             onChange={handleInputChange}
             placeholder={placeholder}
             thousandSeparator={thousandSeparator ? "," : ""}
@@ -133,6 +135,7 @@ export const Input: React.FC<InputProps> = ({
             className={classes}
             disabled={disabled}
             id={id}
+            name={name}
             onChange={handleInputChange}
             placeholder={placeholder}
             required={required}
